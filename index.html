@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Libreria para cambio de formato de fecha -->
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/es/cdn.min.js"></script>
+    <title>Administrador de tareas</title>
+    <link rel="shortcut icon" href="icono/R.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/administrador_tareas.css">
+</head>
+<body id="cuerpo">
+    
+    <main>
+    
+    <section>
+        <h1>ADMINISTRADOR DE TAREAS</h1> 
+        <div class="modoOscuroClaro">
+        <button id="modoOscuroClaro" >Modo Oscuro &#127769;</button>
+        </div>
+
+        <!-- Formulario para agregar la tarea -->
+        <form  id="formulario">
+            <label> Título: </label>
+            <input name="titulo" id="tituloTarea" type="text" placeholder="Título de la tarea" required>
+            <label >Descripción: </label>
+            <textarea name="descripcion" id="descripcion" cols="20" rows="5" placeholder="Descripción de la tarea"  required></textarea>
+            <label>Prioridad:</label>
+            <select id="prioridad">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <p id="vacioTituloTarea" class="mostrar"></p>
+            <button type="submit" title="Botón para agregar la tarea" class="aprobado">Agregar Tarea</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Lista de tareas</h2>
+        
+        <!-- Barra de búsqueda para filtrar tareas por título o descripción -->
+        <input  id="buscar" type="text" placeholder="Buscar tarea por título o descripción" >
+        
+        <!-- Filtro de los estados de las tareas -->
+        <nav> 
+            <button id="btnTodas" title="Botón para mostrar todas las tareas">Todas</button> 
+            <button id="btnPendientes" title="Botón para mostrar todas las tareas pendientes">Pendientes</button> 
+            <button id="btnRealizadas" title="Botón para mostrar todas las tareas realizadas">Realizadas</button> 
+        </nav>
+        
+        <!-- Botón para eliminar todas las tareas Y seleccion de la tarea mas reciente o menos reciente -->
+        <button  id="btnEliminarTodo" class="mostrar" title="Botón para eliminar todas las tareas" 
+        style="background-color: #ef4444; color: white; ;">Eliminar todo</button>
+        
+        <p id="mostrarParrafo" class="mostrar">Ordenar tareas por...</p>
+        <div class="ordenar" >
+            <div id="mostrarFiltroFecha" class="mostrar" >
+            <label>Fecha: </label>
+            <select id="filtroFecha" >
+            <option value="ninguna">Ninguna</option>
+            <option value="masReciente">Más reciente</option>
+            <option value="masAntigua">Más antigua</option>
+            </select>
+            </div>
+
+            <div  id="mostrarFiltroPrioridad" class="mostrar">
+            <label>Prioridad: </label>
+            <select id="filtroPrioridad">
+                <option value="ninguna">Ninguna</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            </div>
+        </div>
+        
+
+        <!-- Lista para visualizar las tareas agregadas -->
+        <ul id="lista" class="lista" >
+
+        </ul>
+    </section>
+
+    <!-- Modal para la edicion de tareas -->
+    <div  id="modal" class="modal">
+        <div id="modalContent"  class="modal-content">
+            <h2>EDITAR TAREA</h2>
+            <input name="titulo" id="editarTitulo" type="text" placeholder="TITULO DE LA TAREA"   required>
+            <textarea name="descripcion" id="editarDescripcion" cols="20" rows="5" placeholder="DESCRIPCION DE LA TAREA"  required></textarea>
+            <label>Prioridad:</label>
+            <select id="editarPrioridad">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <p id="vacioTituloTarea" class="mostrar"></p>
+            <button class="guardarTarea aprobado" title="Botón para guardar tarea" >Guardar</button>
+            <button class="cancelarTarea" title="Botón para cancelar edicion">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar que los cambios se realizaron -->
+    <div id="modalCambioEstado" class="modal">
+        <div class="modal-content estadosRealizados">
+        <p id="parrafoEstado" ></p>
+        <img id="imagenEstado">
+        </div>
+    </div>
+
+    <!-- Modal para la descripción de las tareas -->
+    <div id="modalDescripcion" class="modal">
+        <div class="modal-content">
+        <div><button id="cerrarModal">X</button></div>
+        <pre id="parrafoDescripcion"></pre>
+        </div>
+    </div>
+
+    <!-- Modal para la elimar una tarea -->
+    <div id="modalEliminarTarea" class="modal">
+        <div class="modal-content">
+        <p>¿Estás seguro de que deseas eliminar esta tarea?</p>
+        <button class="aceptarEliminar aprobado" title="eliminar tarea">Aceptar</button>
+        <button class="CancelarEliminar" title="no eliminar la tarea">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para la elimar todas las tareas -->
+    <div id="modalEliminarTodasTarea" class="modal">
+        <div class="modal-content">
+        <p>¿Estás seguro de que deseas eliminar todas las tareas?</p>
+        <button class="aceptarEliminar aprobado" title="Botón para eliminar todas las tareas">Aceptar</button>
+        <button class="CancelarEliminar" title="Botón para para no eliminar todas las tareas">Cancelar</button>
+        </div>
+    </div>
+
+    <section>
+        <h2>Resumen</h2>
+        <div class="resumen">
+        <label  id="resumen" > Total de tareas: 0 | Tareas mostradas: 0 | Tareas pendientes: 0 | Tareas realizadas: 0 </label>
+        <button id="inicio"> Inicio </button>
+        </div>
+    </section>
+    
+    </main>
+
+    <script type="module" src="js/administrador_tareas.js" ></script>
+</body>
+</html>

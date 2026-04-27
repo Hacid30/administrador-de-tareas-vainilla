@@ -1,0 +1,313 @@
+/* === Variables === */
+:root {
+    --fondo: #F0F4F8;
+    --texto: #000000;
+    --card: #f5f5f5;
+    --modal: #ffffff;
+    --main: #FFFFFF;
+    --borde: #b4b4b4;
+    --realizada: rgba(0,0,0,0.05);
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.oscuro {
+    --fondo: #121212;
+    --texto: #ECFDF5;
+    --card: #1e1e1e;
+    --modal: #1e1e1e;
+    --main: #121212;
+    --borde: #333;
+    --realizada: rgba(255,255,255,0.05);
+    --shadow: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+main {
+    max-width: 600px;
+    align-items: center;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px var(--texto) solid;
+    border-radius: 30px;
+    background-color: var(--main);
+    box-shadow: 0px 0px 10px var(--shadow);
+}
+
+h1 {
+    text-align: center;
+}
+
+.modoOscuroClaro{
+    text-align: right;
+}
+
+/* === Formulario === */
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 10px;
+}
+
+#descripcion {
+    height: 40px;
+    width: 100%;
+}
+
+input, textarea, select {
+    background-color: var(--card);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.input-error{
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    display: flex;
+} 
+
+/* === Barra de busqueda === */
+#buscar {
+    width: 100%;
+}
+
+/* === Botón para eliminar todas las tareas */
+#btnEliminarTodo {
+    margin-left: 25px;
+}
+
+/* === Todos los botones === */
+button {
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 16px;
+    
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* === Tareas realizadas === */
+.aprobado {
+    background-color: #10B981;
+}
+
+.realizada {
+    text-decoration: line-through;
+    opacity: 0.6;
+    background-color: var(--realizada);
+    transform: scale(0.98);
+    filter: grayscale(40%);
+}
+
+.realizada .realizada-btn {
+    background-color: rgb(0, 255, 0);
+    opacity: 1;
+    border-radius: 5px;
+}
+
+/* Barra de navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+nav button {
+    width: 100%;
+    margin: 5px;
+}
+
+/* ordenar tareas por filtro y fecha  */
+#mostrarParrafo {
+    justify-content: center;
+}
+
+.ordenar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ordenar select{
+    padding: 0;
+    margin-left: 5px;
+    width: auto;
+}
+
+.mostrar {
+    display: none;
+}
+
+/*Estilos de la lista*/
+.lista {
+    padding: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    list-style-type: none;
+    border-radius: 12px;
+    padding: 9px;
+    margin-bottom: 10px;
+    background-color: var(--card);
+    opacity: 1;
+    border: 1px solid rgba(255, 253, 253, 0.05);
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Botones de las tareas */
+.descrip { background-color: #64748b; color: white; }
+.editar-btn { background-color: #3b82f6; color: white; }
+.realizada-btn { background-color: #22c55e; color: white; }
+.eliminar { background-color: #ef4444; color: white; }
+
+/* Botones de filtros */
+#btnTodas { border: 2px solid #64748b; color: #64748b; background: transparent; }
+#btnPendientes { border: 2px solid #f59e0b; color: #f59e0b; background: transparent; }
+#btnRealizadas { border: 2px solid #10b981; color: #10b981; background: transparent; }
+
+#btnTodas:hover { color: white; background: #64748b; }
+#btnPendientes:hover { color: white; background: #f59e0b; }
+#btnRealizadas:hover { color: white; background: #10b981; }
+
+#btnTodas.btnActivo { color: white; background: #64748b; }
+#btnPendientes.btnActivo { color: white; background: #f59e0b;}
+#btnRealizadas.btnActivo { color: white; background: #10b981; }
+
+/* Prioridades */
+.alta { border-left: 6px solid #E11D48; background-color: var(--card); }
+.media { border-left: 6px solid #F59E0B; background-color: var(--card);}
+.baja { border-left: 6px solid #22C55E; background-color: var(--card);}
+
+.nueva{
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+}
+
+.eliminando {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+}
+
+/* === Modales === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--modal);
+    color: var(--texto);
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    margin: 20px auto;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content h2{
+    text-align: center;
+}
+
+.modal-content #cerrarModal {
+    float: right;
+    background-color: #E11D48;
+    color: white;
+}
+
+.modal.activo {
+    display: block;
+}
+
+#cerrarModal {
+    font-size: 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    max-height: 200px;
+    max-width: 100%;
+    font-family: inherit;
+    padding: 15px;
+    border: 1px solid var(--texto);
+    border-radius: 12px;
+    background-color: var(--fondo);
+    color: var(--texto);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+}
+
+.estadosRealizados {
+    align-items: center;
+}
+
+/* Imagen de validacion */
+img {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+}
+
+.resumen {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* === Transicion de modo oscuro === */
+body, .modal-content, input, textarea {
+    transition: background-color 0.3s ease, color 0.3s ease ;
+}
+
+/* === Estilo para cuando la lista esta vacia === */
+.lista-vacia {
+    justify-content: center;
+    opacity: 0.6;
+    padding: 20px;
+}
