@@ -4,6 +4,8 @@ Aplicación web sencilla para registrar, visualizar y administrar tareas persona
 
 Este proyecto fue desarrollado como práctica de JavaScript enfocado en la manipulación del DOM, lógica de negocio y buenas prácticas de organización del código.
 
+<img width="300" height="400" alt="Grabación 2026-04-27 185159" src="https://github.com/user-attachments/assets/b17c41ba-417d-4440-8ab8-62702f5b4289" />
+
 ## Funcionalidades
 
 - Cuando no hay tareas se visualiza en la lista con el texto "No hay tareas registradas"
@@ -34,10 +36,10 @@ Este proyecto fue desarrollado como práctica de JavaScript enfocado en la manip
 
 ## Tecnologías utilizadas
 
-- [HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-- [CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-- [JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-- [LocalStorage](https://img.shields.io/badge/LocalStorage-blue?style=for-the-badge&logo=google-chrome&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![LocalStorage](https://img.shields.io/badge/LocalStorage-blue?style=for-the-badge&logo=google-chrome&logoColor=white)
 
 ## Estructura del proyecto 
 
@@ -81,9 +83,30 @@ Este proyecto fue desarrollado como práctica de JavaScript enfocado en la manip
 13. Usar el selector de prioridad, para solo mostrar las tareas con dicha prioridad escogida
 14. Usar el botón inicio para volver al formulario.
 
+## Capturas de pantalla
+
+<table>
+  <tr align="center" >
+    <td><b>Barra de búsqueda para filtrar tareas</b></td>
+    <td><b>Colorimetria a las tareas segun su prioridad</b></td>
+  </tr>
+  <tr align="center">
+    <td> <img width="200" height="300" src="https://github.com/user-attachments/assets/a8a6db24-e1a4-4b88-a8f0-a8aa365bcd48" /> </td> 
+    <td> <img width="200" height="300" src="https://github.com/user-attachments/assets/be82db61-079e-43e7-96aa-28e25d2721ad" /> </td> 
+  </tr>
+  <tr align="center">
+    <td><b>Organizar las tareas por prioridad</b></td>
+    <td><b>Modales</b></td>
+  </tr>
+  <tr align="center">
+    <td> <img width="200" height="300" src="https://github.com/user-attachments/assets/bfc2a961-ceda-4d42-8318-22e4c26c8dee" /> </td> 
+    <td> <img width="200" height="300" src="https://github.com/user-attachments/assets/7b24f37f-feda-4b18-83f6-33b98b3830d4" /> </td>
+  </tr> 
+</table>
+
 ## Instalación y uso local
 
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/tu-repositorio.git`
+1. Hacer Download ZIP.
 2. Abre el archivo `index.html` en tu navegador favorito.
 
 ## Posibles mejoras futuras
