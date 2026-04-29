@@ -111,7 +111,7 @@ Este proyecto fue desarrollado como práctica de JavaScript enfocado en la manip
 
 ## Posibles mejoras futuras
 
-- Versión en React
+- Migrar este proyecto a React para implementar una arquitectura basada en componentes y manejo de estado global. La versión en React será desarrollada totalmente en inglés.
 
 ## Autor
 
